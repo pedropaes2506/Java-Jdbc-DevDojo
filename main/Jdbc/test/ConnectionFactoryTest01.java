@@ -1,8 +1,12 @@
 package main.Jdbc.test;
 
+import lombok.extern.log4j.Log4j2;
 import main.Jdbc.dominio.Producer;
 import main.Jdbc.service.ProducerService;
 
+import java.util.List;
+
+@Log4j2
 public class ConnectionFactoryTest01 {
     public static void main(String[] args) {
         Producer producer = Producer.builder().name("Studio Deen").build();
@@ -14,6 +18,9 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.delete(7);
 //        ProducerService.delete(8);
 //        ProducerService.delete(9);
-        ProducerService.update(producerToUpdate);
+//        ProducerService.update(producerToUpdate);
+//        List<Producer> producers = ProducerService.findAll();
+        List<Producer> producers = ProducerService.findByName("Mad");
+        log.info("Producers found '{}'", producers);
     }
 }
